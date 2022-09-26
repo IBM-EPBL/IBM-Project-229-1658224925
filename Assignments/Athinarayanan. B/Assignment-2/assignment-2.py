@@ -1,8 +1,8 @@
 import random
 def alarm():
-    #print("----------------------------")
+
     print(" Alert! Temperature is High ")
-    #print("----------------------------")
+
     
 def display(temp, hum):
     print("Temperature : ", temp)
