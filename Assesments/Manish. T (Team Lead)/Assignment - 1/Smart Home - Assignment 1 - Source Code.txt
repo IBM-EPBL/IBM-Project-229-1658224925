@@ -1,0 +1,44 @@
+int led = 12;     
+int buzzer = 13;
+int Msensor = 3;
+int Lsensor = A5; 
+int Lval = 0;
+int Mval = 0;
+int Threshold = 400;
+
+void setup() {
+  pinMode(led, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  pinMode(Lsensor, INPUT);
+  pinMode(Msensor, INPUT);
+  Serial.begin(9600);        
+}
+
+void loop()
+{
+  delay(1000);
+  Serial.println("===================");
+  Lval = analogRead(Lsensor);
+  Serial.println(Lval);      //Light Intensity
+  if (Lval > Threshold)
+  {           
+    digitalWrite(led, LOW);
+    Serial.println("Day Time");
+  } 
+  else 
+  {
+      digitalWrite(led, HIGH);
+ 	  Serial.println("Night Time");
+  }
+  Mval = digitalRead(Msensor);
+  if(Mval == HIGH)
+  {
+    tone(buzzer,1000);
+    Serial.println("Motion Detected");
+  }
+  else
+  {
+    tone(buzzer,0);
+    Serial.println("No Motion");
+  }
+}
