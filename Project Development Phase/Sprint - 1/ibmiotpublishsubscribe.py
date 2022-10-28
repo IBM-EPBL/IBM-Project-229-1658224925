@@ -35,11 +35,13 @@ while True:
         
         temp=random.randint(0,100)
         Humid=random.randint(0,100)
+        Gas=random.randint(0,100)
         
-        data = { 'temp' : temp, 'Humid': Humid }
+        data = { 'temp' : temp, 'Humid': Humid, 'Gas':Gas }
+
         #print data
         def myOnPublishCallback():
-            print ("Published Temperature = %s C" % temp, "Humidity = %s %%" % Humid, "to IBM Watson")
+            print ("Published Temperature = %s C" % temp, "Humidity = %s %%" % Humid, "Gas Concentration=%s"%Gas "to IBM Watson")
 
         success = deviceCli.publishEvent("IoTSensor", "json", data, qos=0, on_publish=myOnPublishCallback)
         if not success:
