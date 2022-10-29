@@ -41,7 +41,7 @@ while True:
 
         #print data
         def myOnPublishCallback():
-            print ("Published Temperature = %s C" % temp, "Humidity = %s %%" % Humid, "Gas Concentration=%s"%Gas "to IBM Watson")
+            print ("Published Temperature = %s C" % temp, "Humidity = %s %%" % Humid, "Gas Concentration = %s"%Gas "to IBM Watson")
 
         success = deviceCli.publishEvent("IoTSensor", "json", data, qos=0, on_publish=myOnPublishCallback)
         if not success:
